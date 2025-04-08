@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Amount Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .amount {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            user-select: all;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random Amount Generator</h2>
+    <button onclick="generateAmount()">Generate</button>
+    <p class="amount" id="amount1" onclick="copyAmount('amount1')">Click to generate</p>
+    <p class="amount" id="amount2" onclick="copyAmount('amount2')">Click to generate</p>
+    
+    <script>
+        function generateAmount() {
+            document.getElementById("amount1").innerText = (Math.random() * (0.002 - 0.001) + 0.001).toFixed(6);
+            document.getElementById("amount2").innerText = (Math.random() * (0.002 - 0.001) + 0.001).toFixed(6);
+        }
+        
+        function copyAmount(id) {
+            let amountText = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(amountText);
+        }
+    </script>
+</body>
+</html>
